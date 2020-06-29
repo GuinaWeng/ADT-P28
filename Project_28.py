@@ -55,3 +55,9 @@ print('-'*10, 'Q4', '-'*10)
 qs = QuantilesSortingDigraph(tab, limitingQuantiles=15,LowerClosed=False)
 qs.showHTMLSorting()
 input("Press Enter to continue...")
+
+###Q6###
+print('-'*10, 'Q6', '-'*10)
+qs = QuantilesSortingDigraph(tab, limitingQuantiles=3,LowerClosed=False)
+qs.showHTMLSorting()
+input("Press Enter to continue...")
