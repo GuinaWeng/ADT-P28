@@ -49,3 +49,9 @@ elif koh_corr >= netflow_corr and koh_corr >= cop_corr:
     print('According to the Kohler order,the ranking is:')
     koh.showRanking()
 input("Press Enter to continue...")
+
+###Q4###
+print('-'*10, 'Q4', '-'*10)
+qs = QuantilesSortingDigraph(tab, limitingQuantiles=15,LowerClosed=False)
+qs.showHTMLSorting()
+input("Press Enter to continue...")
