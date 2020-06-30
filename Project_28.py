@@ -1,11 +1,9 @@
-
 from perfTabs import *
-import IPython
-from IPython.display import Image
 from outrankingDigraphs import BipolarOutrankingDigraph as BipolarOD
 from randomPerfTabs import RandomCBPerformanceTableau
 from sortingDigraphs import NormedQuantilesRatingDigraph
 from sortingDigraphs import QuantilesSortingDigraph
+from perfTabs import PartialPerformanceTableau as PartialPerfTab
 
 ###Q1###
 print('-'*10, 'Question1', '-'*10)
@@ -79,3 +77,17 @@ print('-'*10, 'Q6', '-'*10)
 qs = QuantilesSortingDigraph(tab, limitingQuantiles=3,LowerClosed=False)
 qs.showHTMLSorting()
 input("Press Enter to continue...")
+
+###Q7###
+print('-'*10, 'Q7', '-'*10)
+shortlist = {'set' : ['s1917', 's0032', 's1714', 's0578', 's1775', 's0624',
+                      's1430', 's1878', 's1691', 's0121', 's1210', 's1950',
+                      's0251', 's0928', 's1682']}
+for ct in ['set']:
+    print(format(ct))
+    actionsSubset = shortlist[ct]
+    tPart = PartialPerformanceTableau(tab,  actionsSubset)
+    tBiOutR = BipolarOD(tPart)
+    tBiOutR.showRubisBestChoiceRecommendation()
+   
+print('-'*10, 'END', '-'*10)
