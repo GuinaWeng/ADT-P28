@@ -60,15 +60,15 @@ input("Press Enter to continue...")
 ###Q5###
 # load quantile info from file
 t = PerformanceTableau('historicalData_28')
-from sortingDigraphs import QuantilesSortingDigraph
 qs_5 = QuantilesSortingDigraph(t,limitingQuantiles=15)
-qs.showSorting()
+print('-'*5, 'showSorting''-'*5 )
+qs_5.showSorting()
 input("Press Enter to continue...")
+print('-'*5, 'showQuantileOrdering','-'*5)
 qs_5.showQuantileOrdering(strategy='average')
-
 input("Press Enter to continue...")
-
-bg = PreRankedOutrankingDigraph(t,quantiles=15)
+bg = PreRankedOutrankingDigraph(qs_5,quantiles=15)
+print('-'*5, 'showDecomposition','-'*5)
 bg.showDecomposition()
 input("Press Enter to continue...")
 
