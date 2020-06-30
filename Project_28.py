@@ -3,6 +3,10 @@ from perfTabs import *
 import IPython
 from IPython.display import Image
 from outrankingDigraphs import BipolarOutrankingDigraph as BipolarOD
+from randomPerfTabs import RandomCBPerformanceTableau
+from sortingDigraphs import NormedQuantilesRatingDigraph
+from sortingDigraphs import QuantilesSortingDigraph
+
 ###Q1###
 print('-'*10, 'Question1', '-'*10)
 # load the tableau
@@ -54,6 +58,20 @@ input("Press Enter to continue...")
 print('-'*10, 'Q4', '-'*10)
 qs = QuantilesSortingDigraph(tab, limitingQuantiles=15,LowerClosed=False)
 qs.showHTMLSorting()
+input("Press Enter to continue...")
+###Q5###
+# load quantile info from file
+t = PerformanceTableau('historicalData_28')
+from sortingDigraphs import QuantilesSortingDigraph
+qs_5 = QuantilesSortingDigraph(t,limitingQuantiles=15)
+qs.showSorting()
+input("Press Enter to continue...")
+qs_5.showQuantileOrdering(strategy='average')
+
+input("Press Enter to continue...")
+
+bg = PreRankedOutrankingDigraph(t,quantiles=15)
+bg.showDecomposition()
 input("Press Enter to continue...")
 
 ###Q6###
