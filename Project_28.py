@@ -1,9 +1,16 @@
 from perfTabs import *
-from outrankingDigraphs import BipolarOutrankingDigraph as BipolarOD
+from sortingDigraphs import NormedQuantilesRatingDigraph
 from randomPerfTabs import RandomCBPerformanceTableau
+from randomPerfTabs import Random3ObjectivesPerformanceTableau
+from randomPerfTabs import RandomPerformanceGenerator
+from randomPerfTabs import RandomPerformanceTableau
+from performanceQuantiles import PerformanceQuantiles
+from outrankingDigraphs import BipolarOutrankingDigraph as BipolarOD
+from linearOrders import CopelandOrder, NetFlowsOrder, KohlerOrder
 from sortingDigraphs import NormedQuantilesRatingDigraph
 from sortingDigraphs import QuantilesSortingDigraph
-from perfTabs import PartialPerformanceTableau as PartialPerfTab
+from sparseOutrankingDigraphs import PreRankedOutrankingDigraph
+from sortingDigraphs import QuantilesSortingDigraph
 
 ###Q1###
 print('-'*10, 'Question1', '-'*10)
@@ -59,18 +66,24 @@ qs.showHTMLSorting()
 input("Press Enter to continue...")
 ###Q5###
 # load quantile info from file
-t = PerformanceTableau('historicalData_28')
-qs_5 = QuantilesSortingDigraph(t,limitingQuantiles=15)
-print('-'*5, 'showSorting''-'*5 )
-qs_5.showSorting()
-input("Press Enter to continue...")
-print('-'*5, 'showQuantileOrdering','-'*5)
-qs_5.showQuantileOrdering(strategy='average')
-input("Press Enter to continue...")
-bg = PreRankedOutrankingDigraph(qs_5,quantiles=15)
-print('-'*5, 'showDecomposition','-'*5)
-bg.showDecomposition()
-input("Press Enter to continue...")
+#t = PerformanceTableau('historicalData_28')
+#qs_5 = QuantilesSortingDigraph(t,limitingQuantiles=15)
+#print('-'*5, 'showSorting''-'*5 )
+#qs_5.showSorting()
+#input("Press Enter to continue...")
+#print('-'*5, 'showQuantileOrdering','-'*5)
+#qs_5.showQuantileOrdering(strategy='average')
+#input("Press Enter to continue...")
+#bg = PreRankedOutrankingDigraph(qs_5,quantiles=15)
+#print('-'*5, 'showDecomposition','-'*5)
+#bg.showDecomposition()
+#input("Press Enter to continue...")
+print('-'*10, 'Q5', '-'*10)
+hiD = PerformanceTableau('historicalData_28')
+rt = RandomPerformanceTableau(numberOfActions=100,numberOfCriteria=15,seed=100)
+pq = PerformanceQuantiles(rt,numberOfBins = 15,LowerClosed=True)
+nqr = NormedQuantilesRatingDigraph(hiD,tab)
+nqr.showQuantilesRating()
 
 ###Q6###
 print('-'*10, 'Q6', '-'*10)
