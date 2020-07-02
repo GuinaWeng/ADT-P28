@@ -1,9 +1,9 @@
 from perfTabs import *
 from sortingDigraphs import NormedQuantilesRatingDigraph
-from randomPerfTabs import RandomCBPerformanceTableau
-from randomPerfTabs import Random3ObjectivesPerformanceTableau
-from randomPerfTabs import RandomPerformanceGenerator
-from randomPerfTabs import RandomPerformanceTableau
+#from randomPerfTabs import RandomCBPerformanceTableau
+#from randomPerfTabs import Random3ObjectivesPerformanceTableau
+#from randomPerfTabs import RandomPerformanceGenerator
+#from randomPerfTabs import RandomPerformanceTableau
 from performanceQuantiles import PerformanceQuantiles
 from outrankingDigraphs import BipolarOutrankingDigraph as BipolarOD
 from linearOrders import CopelandOrder, NetFlowsOrder, KohlerOrder
